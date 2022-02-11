@@ -28,4 +28,15 @@ router.post('/notes', (req, res) => {
     }
 });
 
+router.delete('/notes/:id', (req, res) => {
+    const id = req.params.id;
+    const index = notes.findIndex(note => note.id === id);
+    notes.splice(index, 1)
+
+    res.json({
+        message: "success",
+    })
+
+})
+
 module.exports  = router;
